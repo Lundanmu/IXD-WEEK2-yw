@@ -16,7 +16,7 @@ input_timer = 0
 program_state = 'START'
 
 def setup():
-  global pin_label, program_state_label, input_pin
+  global pin_label, program_state_label, input_pin,rgb2
 
   M5.begin()
   pin_label = Widgets.Label("input", 5, 5, 1.0, 0xffffff, 0x000000, Widgets.FONTS.DejaVu18)
@@ -46,19 +46,14 @@ def loop():
         program_state_label.setText(program_state)
         
         for i in range(100):
-            rgb2.fill_color((i << 16) | (0 << 8) | 0)
-            time.sleep_ms(20)
-  # fade out all pixels red color:
-        for i in range(100):
             rgb2.fill_color((99-i << 16) | (0 << 8) | 0)
             time.sleep_ms(20)
   # fill in pixels one by one with blue:
-        for i in range(10):
-            rgb2.set_color(i, 0x0000FF)
-            time.sleep_ms(200)
         
     else:
       pin_label.setText('Waiting')
+      rgb2.fill_color(0 | 0| 0)
+      program_state = 'START'
   
 if __name__ == '__main__':
   try:
