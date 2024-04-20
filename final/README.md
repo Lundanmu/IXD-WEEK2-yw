@@ -33,7 +33,7 @@ laser cut file for the gotcha box
 
 Stick acrylic on a board to cut the 30° angle edge & make the central part thinner
 
-![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/1d6ad9a3-15d0-4f22-8e36-ca2105c9ae29)
+![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c8de3dcb-bb42-44b8-a7d6-047d8e50f824)
 
 Cut the first prototype out 
 
@@ -50,8 +50,6 @@ I used:
 * One 360° Servo Unit
    
 ![harware](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c44e187d-3c70-4692-8b0d-84177138f86b)
-
-`[https://github.com/Lundanmu/adv-prototyping/blob/main/final/main.py](./)`  
 
 In order to make the light sensor be sensitive enough, I stick it to the back of the lid of the base. I hide all of the hardware inside the base, and the wire will come out through a hole.
 
