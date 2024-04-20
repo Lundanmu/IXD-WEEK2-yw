@@ -25,16 +25,21 @@ I used:
 Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
 For the base and the stand, I used a soft 6LB foam (pink) and 20 LB foam together (orange).
 
-
-![process gotcha2](https://github.com/Lundanmu/adv-prototyping/assets/141177081/f535feef-bf1a-4a86-ad4e-0a442ebe83f0)
+![laser file](https://github.com/Lundanmu/adv-prototyping/assets/141177081/968b3055-7a81-412a-8158-f1b99b1d9306)
 
 laser cut file for the gotcha box
 
-![Group 9](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b73aa09f-c69a-4094-80ed-a43ea680ea27)
+![laser cut piece](https://github.com/Lundanmu/adv-prototyping/assets/141177081/dc441b02-aabd-4107-94e4-c4aa06bf11b4)
 
-Stick acrylic on a board to cut the 30° angle edge & First prototype
+Stick acrylic on a board to cut the 30° angle edge & make the central part thinner
+
+![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b8fe85ff-05da-4caf-81ae-d6ee4b94b3ec)
+
+Cut the first prototype out 
 
 From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
+
+![Group 10](https://github.com/Lundanmu/adv-prototyping/assets/141177081/38b1a979-8b36-4c08-b44b-277112e132ef)
 
 ### The Hardware Part:
 I used:
