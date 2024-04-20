@@ -25,7 +25,7 @@ I used:
 Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
 For the base and the stand, I used a soft 6LB foam (pink) and 20 LB foam together (orange).
 
-![laser file](https://github.com/Lundanmu/adv-prototyping/assets/141177081/968b3055-7a81-412a-8158-f1b99b1d9306)
+![Group 11](https://github.com/Lundanmu/adv-prototyping/assets/141177081/90adbc9c-43c4-47a2-84e9-c222dbfc2e56)
 
 laser cut file for the gotcha box
 
@@ -39,7 +39,9 @@ Cut the first prototype out
 
 From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
 
-![Group 10](https://github.com/Lundanmu/adv-prototyping/assets/141177081/38b1a979-8b36-4c08-b44b-277112e132ef)
+![stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/371b1d95-f7df-4572-838b-0241e1192c6c)
+
+![Uploading box.jpg…]()
 
 ### The Hardware Part:
 I used:
@@ -47,6 +49,9 @@ I used:
 * One M5Stack ATOMIC PortABC Extension Base
 * One LED Strip Light
 * One Light Sensor Unit
+* One 360° Servo Unit
+   
+![harware](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c44e187d-3c70-4692-8b0d-84177138f86b)
 
 `[https://github.com/Lundanmu/adv-prototyping/blob/main/final/main.py](./)`  
 
@@ -171,6 +176,8 @@ voice = soundall[int(p5.random(5))]
 ## Project outcome  
 
 ![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
+
+![gotcha side](https://github.com/Lundanmu/adv-prototyping/assets/141177081/245a5449-ff27-4044-8a61-9bd8b79ff3c9)
 
 The image
 
