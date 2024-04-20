@@ -4,17 +4,17 @@
 ## Introduction   
 This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates it will drop a ball off. When the ball rolls to the hole, the computer will play music. The initial idea is designing the machine connected to a website. The user will play the sound by inputting the number written on the ball to the website. While I was working on the progress, I found out there are too many unnecessary steps in this way, so I got rid of the website part, enabling users to play music as long as they make the machine rotate. 
 
-![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
-
 Final Outcome
 
-![未命名作品 8 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b9e20ba4-fa0f-45d2-a6e1-ea35fe8ef08d)
+![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
 
 Initial Idea
 
-![Group 7](https://github.com/Lundanmu/adv-prototyping/assets/141177081/02f6ac00-0661-44bd-9008-be096f36d9df)
+![未命名作品 8 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b9e20ba4-fa0f-45d2-a6e1-ea35fe8ef08d)
 
 Exploring different forms
+
+![Group 7](https://github.com/Lundanmu/adv-prototyping/assets/141177081/02f6ac00-0661-44bd-9008-be096f36d9df)
 
 ## Implementation   
 ### Enclosure / Mechanical Design:
@@ -25,17 +25,17 @@ I used:
 Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
 For the base and the stand, I used a soft 6LB foam (pink) and 20 LB foam together (orange).
 
-![Group 11](https://github.com/Lundanmu/adv-prototyping/assets/141177081/90adbc9c-43c4-47a2-84e9-c222dbfc2e56)
-
 laser cut file for the gotcha box
 
-![surface top](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c518c44f-1715-409e-86d6-01b8130b1cdf)
+![Group 11](https://github.com/Lundanmu/adv-prototyping/assets/141177081/90adbc9c-43c4-47a2-84e9-c222dbfc2e56)
 
 Stick acrylic on a board to cut the 30° angle edge & make the central part thinner
 
-![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c8de3dcb-bb42-44b8-a7d6-047d8e50f824)
+![surface top](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c518c44f-1715-409e-86d6-01b8130b1cdf)
 
 Cut the first prototype out 
+
+![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c8de3dcb-bb42-44b8-a7d6-047d8e50f824)
 
 From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
 
@@ -56,6 +56,11 @@ In order to make the light sensor be sensitive enough, I stick it to the back of
 ![Group 8](https://github.com/Lundanmu/adv-prototyping/assets/141177081/aa9d1a45-6f5f-4de4-a3c9-1139ad3ec8e4)
 
 ![stuck](https://github.com/Lundanmu/adv-prototyping/assets/141177081/7aa766bc-5177-4a8f-bed6-617bc7daac42)
+
+The round disk is sticked on the acrylic surface strongly. I need to insert the servo into the disk to make the gotcha box move.
+
+![servo stucking](https://github.com/Lundanmu/adv-prototyping/assets/141177081/29f4d564-31a8-4069-8cdf-6223b98a6937)
+
 
 ### Firmware:
 I used:
@@ -172,20 +177,19 @@ voice = soundall[int(p5.random(5))]
 ```
 
 ## Project outcome  
+The image
 
 ![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
 
 ![gotcha side](https://github.com/Lundanmu/adv-prototyping/assets/141177081/245a5449-ff27-4044-8a61-9bd8b79ff3c9)
 
-The image
-
-https://github.com/Lundanmu/adv-prototyping/assets/141177081/fbbf32de-41f7-4df9-8e31-99fe85fc539c
-
 Demo video
 
-https://github.com/Lundanmu/adv-prototyping/assets/141177081/2782515a-faf9-4e1d-bc82-74d4e04a179f
-
+https://github.com/Lundanmu/adv-prototyping/assets/141177081/fbbf32de-41f7-4df9-8e31-99fe85fc539c
+mklop0ljj
 The change of light
+
+https://github.com/Lundanmu/adv-prototyping/assets/141177081/2782515a-faf9-4e1d-bc82-74d4e04a179f
 
 ## Conclusion  
 ### What I have learned  
