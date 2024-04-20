@@ -29,19 +29,17 @@ For the base and the stand, I used a soft 6LB foam (pink) and 20 LB foam togethe
 
 laser cut file for the gotcha box
 
-![laser cut piece](https://github.com/Lundanmu/adv-prototyping/assets/141177081/dc441b02-aabd-4107-94e4-c4aa06bf11b4)
+![surface top](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c518c44f-1715-409e-86d6-01b8130b1cdf)
 
 Stick acrylic on a board to cut the 30° angle edge & make the central part thinner
 
-![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b8fe85ff-05da-4caf-81ae-d6ee4b94b3ec)
+![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/1d6ad9a3-15d0-4f22-8e36-ca2105c9ae29)
 
 Cut the first prototype out 
 
 From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
 
-![stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/371b1d95-f7df-4572-838b-0241e1192c6c)
-
-![Uploading box.jpg…]()
+!![box*stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/34d59631-c8f5-422a-9da1-8abe7fbc4c69)
 
 ### The Hardware Part:
 I used:
@@ -58,6 +56,8 @@ I used:
 In order to make the light sensor be sensitive enough, I stick it to the back of the lid of the base. I hide all of the hardware inside the base, and the wire will come out through a hole.
 
 ![Group 8](https://github.com/Lundanmu/adv-prototyping/assets/141177081/aa9d1a45-6f5f-4de4-a3c9-1139ad3ec8e4)
+
+![stuck](https://github.com/Lundanmu/adv-prototyping/assets/141177081/7aa766bc-5177-4a8f-bed6-617bc7daac42)
 
 ### Firmware:
 I used:
