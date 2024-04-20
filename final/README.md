@@ -55,7 +55,7 @@ I used:
 * One LED Strip Light
 * One Light Sensor Unit
 
-`[link to this page](./)`  
+`[https://github.com/Lundanmu/adv-prototyping/blob/main/final/main.py](./)`  
 
 In order to make the light sensor be sensitive enough, I stick it to the back of the lid of the base. I hide all of the hardware inside the base, and the wire will come out through a hole.
 
@@ -65,12 +65,17 @@ In order to make the light sensor be sensitive enough, I stick it to the back of
 
 ![IMG_0272](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b83e9e72-5076-4aee-abc0-5148892cf0f8)
 
-### The Software Part Includes:
+### Firmware:
+I used:
 * Thonny
-* Visual Studio Code
   
 ![states](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c91bb4ef-ee3f-4eda-863f-6debd2d17d46)
 
+Light sensor setup:
+
+``` Python  
+adc1 = ADC(Pin(1), atten=ADC.ATTN_11DB)
+```
 In order to achieve the change between the rotating mode and sound mode, I set four states in the program. The first state is 'STATE 1'.When the user long press the button, the program will enter 'STATE 2' to make the servo moves 180° degree. The LED light will turn from red to green.
 
 ``` Python  
@@ -131,13 +136,22 @@ if adc1_val > 1700:
         servo_timer = time.ticks_ms()
         rgb_timer = time.ticks_ms()
 ```
-### The Integrations Include:
-* UIFlow
+### Software & Integrations:
+I used:
+* Visual Studio Code
+* UI Flow
 
-### The Enclosure Part Includes
-* Laser cut arylic for the gotcha box
-* 20LB foam for the base and stand
+Because this program needs the computer to play music, so I need to use WebSerial PyScript. In Thonny, the program will print the state and send it to Visual Studio Code to play the voice.
+``` Python  
+  if (program_state == "STATE 4"):
+    if(sensor_val > 1000):
+      if(voice.isPlaying() == False):
+        voice.play()
+    #program_state = "STATE 2"
 
+  else: 
+    voice.stop()
+```
 ## Schematic diagram
 
 # The Diagram for FreedomSworn 
