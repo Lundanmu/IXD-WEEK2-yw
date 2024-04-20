@@ -7,9 +7,11 @@ data_list = None
 # load sound data and assign it to variable:
 sound1 = p5.loadSound('quite.mp3') 
 sound2 = p5.loadSound('moon.mp3') 
+sound3 = p5.loadSound('tides.mp3') 
+sound4 = p5.loadSound('stars.mp3') 
 sound5 = p5.loadSound('funky.mp3') 
-soundall = [sound1, sound2, sound5]
-voice = soundall[int(p5.random(3))]
+soundall = [sound1, sound2, sound3, sound4, sound5]
+voice = soundall[int(p5.random(5))]
 
 
 def setup():
@@ -26,7 +28,10 @@ def draw():
   sensor_val = int(data_list[1])
 
   if (program_state == "STATE 4"):
-    voice.play()
+    if(sensor_val > 1000):
+      if(voice.isPlaying() == False):
+        voice.play()
+    #program_state = "STATE 2"
 
   else: 
     voice.stop()
