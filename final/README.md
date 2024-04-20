@@ -8,7 +8,7 @@ Final Outcome
 
 ![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
 
-Initial Idea
+Initial ideation
 
 ![未命名作品 8 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b9e20ba4-fa0f-45d2-a6e1-ea35fe8ef08d)
 
@@ -165,7 +165,7 @@ Because this program needs the computer to play music, I need to use WebSerial P
   else: 
     voice.stop()
 ```
-I also made the sound play randomly by using random() from p5.libraty.
+I also made the sound play randomly by using random() from p5.library.
 ``` Python  
 sound1 = p5.loadSound('quite.mp3') 
 sound2 = p5.loadSound('moon.mp3') 
@@ -186,7 +186,7 @@ The image
 Demo video
 
 https://github.com/Lundanmu/adv-prototyping/assets/141177081/fbbf32de-41f7-4df9-8e31-99fe85fc539c
-mklop0ljj
+
 The change of light
 
 https://github.com/Lundanmu/adv-prototyping/assets/141177081/2782515a-faf9-4e1d-bc82-74d4e04a179f
