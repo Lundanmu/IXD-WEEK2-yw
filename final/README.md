@@ -1,22 +1,36 @@
-# Michael Tu - Final Project
-## Freedom Sworn & Magic Glove
-
+# Yi Wang - Final Project
+## Muisc Gotcha machine
 
 ## Introduction   
-
-In the final project, there was three different ideas in my initial thoughts:
-### A music gotcha machine
 This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates will drop a ball off. When the ball rolls to the hole, the computer will play a music. The initial idea is designing the machine connected to a website. The user will play the sound by inputing the number written on the ball to the website. While I was working on the progress, I found out there are too many unneccesary steps in this way, so I get rid of the website part, enabling user to play music as long as they make the machine rotate. 
+![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
 
 ## Implementation   
 ### Enclosure / Mechanical Design:
-Since this is a project highly based on the mechanical part, there are few things I did not sure about at the beginning stage, such as if servo is strong enough to rotate the gotcha box. To make these questions figure out, I need to make a quick prototype. The first idea I had was to build it with mdf pieces from laser cut. However I found out it took too much calculation to make each piece stack together precisely, so I decided to use foam instead.
 
-### The Hardware Part includes:
+* Laser cut arylic for the gotcha box
+* 20LB foam for the base and stand
+  
+Since this is a project highly based on the mechanical part, there are few things I did not sure about at the beginning stage, such as if servo is strong enough to rotate the gotcha box. To make these questions figure out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stuck them together. 
+For the base and the stand, I used a soft 6LB foam (pink) and 20LB foam together (orange).
+![process gotcha2](https://github.com/Lundanmu/adv-prototyping/assets/141177081/f535feef-bf1a-4a86-ad4e-0a442ebe83f0)
+laser cut file for the gotcha box
+![IMG_9985 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/ac277292-2548-43d3-bcd8-d5b7b885e813)
+Stick arylic on a board to cut the 30° angle edge
+![IMG_9996 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/98b5c10a-0d09-4493-ab7c-a75c383df791)
+First prototype
+
+From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
+![IMG_0043 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5ce64528-4a2b-4578-89d6-301f39fd1079)
+The stand and the base
+
+### The Hardware Part:
 * One M5Stack AtomS3 Lite Controller
 * One M5Stack ATOMIC PortABC Extension Base
 * One LED Strip Light
 * One Light Sensor Unit
+![IMG_0129](https://github.com/Lundanmu/adv-prototyping/assets/141177081/1df07095-1bca-4607-b9e6-513dc8fa5578)
+
 
 ### The Software Part Includes:
 * Thonny
