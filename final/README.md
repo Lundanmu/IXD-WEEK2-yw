@@ -3,39 +3,134 @@
 
 ## Introduction   
 This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates will drop a ball off. When the ball rolls to the hole, the computer will play a music. The initial idea is designing the machine connected to a website. The user will play the sound by inputing the number written on the ball to the website. While I was working on the progress, I found out there are too many unneccesary steps in this way, so I get rid of the website part, enabling user to play music as long as they make the machine rotate. 
+
 ![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
+
+Final Outcome
+
+![未命名作品 8 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b9e20ba4-fa0f-45d2-a6e1-ea35fe8ef08d)
+
+Initial Idea
+
+![Group 7](https://github.com/Lundanmu/adv-prototyping/assets/141177081/02f6ac00-0661-44bd-9008-be096f36d9df)
+
+Exploring different forms
 
 ## Implementation   
 ### Enclosure / Mechanical Design:
-
+I used:
 * Laser cut arylic for the gotcha box
 * 20LB foam for the base and stand
   
 Since this is a project highly based on the mechanical part, there are few things I did not sure about at the beginning stage, such as if servo is strong enough to rotate the gotcha box. To make these questions figure out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stuck them together. 
 For the base and the stand, I used a soft 6LB foam (pink) and 20LB foam together (orange).
+
 ![process gotcha2](https://github.com/Lundanmu/adv-prototyping/assets/141177081/f535feef-bf1a-4a86-ad4e-0a442ebe83f0)
+
 laser cut file for the gotcha box
+
 ![IMG_9985 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/ac277292-2548-43d3-bcd8-d5b7b885e813)
-Stick arylic on a board to cut the 30° angle edge
+
+Stick acrylic on a board to cut the 30° angle edge
+
 ![IMG_9996 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/98b5c10a-0d09-4493-ab7c-a75c383df791)
+
 First prototype
 
 From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
+
 ![IMG_0043 1](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5ce64528-4a2b-4578-89d6-301f39fd1079)
+
 The stand and the base
 
+![IMG_0284 2](https://github.com/Lundanmu/adv-prototyping/assets/141177081/7230a545-fbc5-4500-afb1-f64104f653b8)
+
+I glued together the box with acrylic solvent cement
+
+
 ### The Hardware Part:
+I used:
 * One M5Stack AtomS3 Lite Controller
 * One M5Stack ATOMIC PortABC Extension Base
 * One LED Strip Light
 * One Light Sensor Unit
+
+`[link to this page](./)`  
+
+In order to make the light sensor be sensitive enough, I stick it to the back of the lid of the base. I hide all of the hardware inside the base, and the wire will come out through a hole.
+
 ![IMG_0129](https://github.com/Lundanmu/adv-prototyping/assets/141177081/1df07095-1bca-4607-b9e6-513dc8fa5578)
 
+![IMG_0281 2](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b6e90dad-b0d5-4387-9b19-8debf2e57e17)
+
+![IMG_0272](https://github.com/Lundanmu/adv-prototyping/assets/141177081/b83e9e72-5076-4aee-abc0-5148892cf0f8)
 
 ### The Software Part Includes:
 * Thonny
 * Visual Studio Code
+  
+![states](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c91bb4ef-ee3f-4eda-863f-6debd2d17d46)
 
+In order to achieve the change between the rotating mode and sound mode, I set four states in the program. The first state is 'STATE 1'.When the user long press the button, the program will enter 'STATE 2' to make the servo moves 180° degree. The LED light will turn from red to green.
+
+``` Python  
+  elif(program_state == 'STATE 1'):
+    if adc1_val > 1700:
+      rgb.fill_color(get_color(0, 250, 0))
+      if(time.ticks_ms() > servo_timer + 3000):
+        servo.move(105)
+        time.sleep_ms(1700)
+        servo.move(90)
+            
+        program_state = 'STATE 3'
+        print(program_state + "," + str(adc1_val))
+        servo_timer = time.ticks_ms()
+        rgb_timer = time.ticks_ms()
+```
+After that, a ball will come off and rolls to the hole. When the ball rolls to the hole, the program will enter 'STATE 3', the music playing stage. The LED light will turn to rainbow and the computer will play sound.
+
+``` Python  
+elif(program_state == 'STATE 3'):
+    rgb.fill_color(get_color(250, 0, 0))
+    if adc1_val > 1000:
+      if(time.ticks_ms() > rainbow_timer + 50):
+        rainbow_timer = time.ticks_ms()
+        for i in range(30):
+            # hue based on pixel index:
+            #hue = map_value(i, 0, 30, 0, 255)
+            # hue based on pixel index and rainbow offset:
+            index = (i + rainbow_offset) % 30
+            hue = map_value(index, 0, 30, 0, 255)
+            color = hsb_to_color(hue, 255, 255)
+            rgb.set_color(i, color)
+        rainbow_offset += 1
+        program_state = 'STATE 4'
+```
+When the user pick the ball off, the program will enter 'STATE 4', which allows it to go back to 'STATE 2'.
+
+``` Python  
+  elif(program_state == 'STATE 4'):
+    if adc1_val < 800:
+      program_state = 'STATE 2'
+```
+
+'STATE 2' is basically the same as 'STATE 1'. The only difference is when the user long press the button, the servo moves 360° instead of 180°, because the opening now goes to the bottom after the first rotation.
+
+``` Python  
+if adc1_val > 1700:
+      rgb.fill_color(get_color(0, 250, 0))
+      # current time is more than servo timer plus 3 seconds
+      if(time.ticks_ms() > servo_timer + 3000):
+        
+        servo.move(105)
+        time.sleep_ms(1700)
+        servo.move(90)
+            
+        program_state = 'STATE 3'
+        print(program_state + "," + str(adc1_val))
+        servo_timer = time.ticks_ms()
+        rgb_timer = time.ticks_ms()
+```
 ### The Integrations Include:
 * UIFlow
 
