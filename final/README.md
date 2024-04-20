@@ -1,5 +1,5 @@
 # Yi Wang - Final Project
-## Muisc Gotcha machine
+## Muisc Gotcha Machine
 
 ## Introduction   
 This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates it will drop a ball off. When the ball rolls to the hole, the computer will play music. The initial idea is designing the machine connected to a website. The user will play the sound by inputting the number written on the ball to the website. While I was working on the progress, I found out there are too many unnecessary steps in this way, so I got rid of the website part, enabling users to play music as long as they make the machine rotate. 
