@@ -2,7 +2,7 @@
 ## Muisc Gotcha machine
 
 ## Introduction   
-This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates will drop a ball off. When the ball rolls to the hole, the computer will play a music. The initial idea is designing the machine connected to a website. The user will play the sound by inputing the number written on the ball to the website. While I was working on the progress, I found out there are too many unneccesary steps in this way, so I get rid of the website part, enabling user to play music as long as they make the machine rotate. 
+This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates it will drop a ball off. When the ball rolls to the hole, the computer will play music. The initial idea is designing the machine connected to a website. The user will play the sound by inputting the number written on the ball to the website. While I was working on the progress, I found out there are too many unnecessary steps in this way, so I got rid of the website part, enabling users to play music as long as they make the machine rotate. 
 
 ![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
 
@@ -20,10 +20,11 @@ Exploring different forms
 ### Enclosure / Mechanical Design:
 I used:
 * Laser cut arylic for the gotcha box
-* 20LB foam for the base and stand
+* 20 LB foam for the base and stand
   
-Since this is a project highly based on the mechanical part, there are few things I did not sure about at the beginning stage, such as if servo is strong enough to rotate the gotcha box. To make these questions figure out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stuck them together. 
-For the base and the stand, I used a soft 6LB foam (pink) and 20LB foam together (orange).
+Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
+For the base and the stand, I used a soft 6LB foam (pink) and 20 LB foam together (orange).
+
 
 ![process gotcha2](https://github.com/Lundanmu/adv-prototyping/assets/141177081/f535feef-bf1a-4a86-ad4e-0a442ebe83f0)
 
@@ -34,8 +35,6 @@ laser cut file for the gotcha box
 Stick acrylic on a board to cut the 30° angle edge & First prototype
 
 From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
-
-![Group 8](https://github.com/Lundanmu/adv-prototyping/assets/141177081/043788ba-87f8-42cd-81c7-4643aa532f1d)
 
 ### The Hardware Part:
 I used:
@@ -56,12 +55,27 @@ I used:
   
 [Code for Firmware](../final/final.py) 
 
-Light sensor setup:
+I was mainly using a light sensor as my input. Its adc_value serves as the trigger to switch between different states. Here is the setup for the light sensor.
 
 ``` Python  
 adc1 = ADC(Pin(1), atten=ADC.ATTN_11DB)
 ```
-In order to achieve the change between the rotating mode and sound mode, I set four states in the program. The first state is 'STATE 1'.When the user long press the button, the program will enter 'STATE 2' to make the servo moves 180° degree. The LED light will turn from red to green.
+
+Set the 'START' state, resetting all the timers and enable the LED Light turn on to red.
+
+``` Python  
+  if(program_state == 'START'):
+    rgb.fill_color(get_color(250, 0, 0))
+    if adc1_val > 1700:
+      # update servo timer:
+      servo_timer = time.ticks_ms()
+      rgb_timer = time.ticks_ms()
+      # move +1 step at a time from 70 to 110 degrees:
+      program_state = 'STATE 1'
+      print(program_state + "," + str(adc1_val))
+```
+
+In order to achieve the change between the rotating mode and sound mode, I set four states in the program after the user turns on the device. The first state is 'STATE 1'.When the user long presses the button, the program will enter 'STATE 2' to make the servo move 180°. The LED light will turn from red to green. So basically, this state serves as a switch.
 
 ``` Python  
   elif(program_state == 'STATE 1'):
@@ -77,7 +91,7 @@ In order to achieve the change between the rotating mode and sound mode, I set f
         servo_timer = time.ticks_ms()
         rgb_timer = time.ticks_ms()
 ```
-After that, a ball will come off and rolls to the hole. When the ball rolls to the hole, the program will enter 'STATE 3', the music playing stage. The LED light will turn to rainbow and the computer will play sound.
+After that, a ball will come off and rolls to the hole. When the ball roll to the hole, the program will enter 'STATE 3', the music playing stage. The LED light will turn to rainbow and the computer will play sound.
 
 ``` Python  
 elif(program_state == 'STATE 3'):
@@ -96,7 +110,7 @@ elif(program_state == 'STATE 3'):
         rainbow_offset += 1
         program_state = 'STATE 4'
 ```
-When the user pick the ball off, the program will enter 'STATE 4', which allows it to go back to 'STATE 2'.
+When the users pick the ball up, the program will enter 'STATE 4', which allows it to go back to 'STATE 2'.
 
 ``` Python  
   elif(program_state == 'STATE 4'):
@@ -104,7 +118,7 @@ When the user pick the ball off, the program will enter 'STATE 4', which allows 
       program_state = 'STATE 2'
 ```
 
-'STATE 2' is basically the same as 'STATE 1'. The only difference is when the user long press the button, the servo moves 360° instead of 180°, because the opening now goes to the bottom after the first rotation.
+'STATE 2' is basically the same as 'STATE 1'. The only difference is when the users long press the button, the servo moves 360° instead of 180°, because the opening now goes to the bottom after the first rotation.
 
 ``` Python  
 if adc1_val > 1700:
@@ -127,7 +141,7 @@ I used:
   
 [Code for Software](../final/main.py) 
 
-Because this program needs the computer to play music, so I need to use WebSerial PyScript. In Thonny, the program will print the state and send it to Visual Studio Code to play the voice.
+Because this program needs the computer to play music, I need to use WebSerial PyScript. In Thonny, the program will print the state and send it to Visual Studio Code to play the voice.
 ``` Python  
   if (program_state == "STATE 4"):
     if(sensor_val > 1000):
@@ -149,23 +163,27 @@ soundall = [sound1, sound2, sound3, sound4, sound5]
 voice = soundall[int(p5.random(5))]
 ```
 
-### The showcases of the gotcha machine:
+## Project outcome  
+
+![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
+
+The image
 
 https://github.com/Lundanmu/adv-prototyping/assets/141177081/fbbf32de-41f7-4df9-8e31-99fe85fc539c
 
-The whole demo
+Demo video
 
 https://github.com/Lundanmu/adv-prototyping/assets/141177081/2782515a-faf9-4e1d-bc82-74d4e04a179f
 
 The change of light
 
-## Project outcome  
-
-From this project, not only did I learn how to write programs better, but I also did I enhanced my skill of designing and making hand-made stuff. For the programming part, I now have the ability to know micro python better, to understand how different devices connect together, and how those devices are able to connect to the Internet. It is really important for me to understand all of those things before I push my interactive design to the next level. For the hand-making part, this is my first time making a "Real-Sword", from the first version to the final outcome, I understood how could I make a real hand-made prototype and get through troubles. Meanwhile, improving my hand-made skill is also beneficial for me to do my own physical interaction projects in the future.
-
 ## Conclusion  
+### What I have learned  
+I learned a lot about how to combine the physical parts and coding together. There are a lot of things we need to consider to make the mechanical design work well and really express our idea. It is very interesting to see that using the same sensors and units can achieve so many different outputs based on your concept. Besides, my coding skills get really developed in this class. Before that, I could not imagine myself to deal with tricky state changes like what I have achieved in this project.
 
-This term is the first term I really got a feeling of how to learn and write codes, before finishing the final project, I never thought I can push those three ideas so far. Because of this, I think this project really gives me the opportunity to do a design that combines physical and digital interactions together. And moreover, I also feel happy that I could create something real for the game I love and make them work!
+### Opportunities & Future Development 
+There are still a couple of things I could explore in this project. For the mechanical part, the chances for the ball to fall off are not so stable, because it may get stuck at the opening or piled up to block it. I may fix it by drilling the opening bigger and making a door for that. 
+For the coding part, initially I wanted the rainbow color to be blinking while playing the music. However I found out the waiting time for the blinking loop and the waiting time for the states will conflict, which means the state will stop changing if I applied the blinking effect. So I would like to explore this problem more if I have more time.
 
 ## Project references  
 
