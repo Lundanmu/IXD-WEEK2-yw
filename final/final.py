@@ -24,6 +24,8 @@ i2 = None
 
 program_state = 'START'
 
+rainbow_timer = 0
+
 def setup():
   global title0, label0, servo, adc1,rgb
   M5.begin()
@@ -83,6 +85,7 @@ def loop():
   global label0
   global program_state
   global servo_timer,rgb, rgb_timer, rainbow_offset
+  global rainbow_timer
   
   M5.update()
   # read 12-bit ADC value (0 - 4095 range):
@@ -98,7 +101,7 @@ def loop():
   
   if(program_state == 'START'):
     rgb.fill_color(get_color(250, 0, 0))
-    if adc1_val > 2000:
+    if adc1_val > 1700:
       # update servo timer:
       servo_timer = time.ticks_ms()
       rgb_timer = time.ticks_ms()
@@ -108,7 +111,7 @@ def loop():
       
       
   elif(program_state == 'STATE 1'):
-    if adc1_val > 2000:
+    if adc1_val > 1700:
       rgb.fill_color(get_color(0, 250, 0))
       # current time is more than servo timer plus 5 seconds
       if(time.ticks_ms() > servo_timer + 3000):
@@ -118,7 +121,7 @@ def loop():
         servo.move(105)
         #time.sleep_ms(100)
         # wait 2 seconds:
-        time.sleep_ms(4200)
+        time.sleep_ms(1700)
         # stop moving the servo:
         servo.move(90)
             
@@ -129,9 +132,9 @@ def loop():
         
   elif(program_state == 'STATE 2'):
     rgb.fill_color(get_color(250, 0, 0))
-    if adc1_val > 2000:
+    if adc1_val > 1700:
       rgb.fill_color(get_color(0, 250, 0))
-      # current time is more than servo timer plus 5 seconds
+      # current time is more than servo timer plus 3 seconds
       if(time.ticks_ms() > servo_timer + 3000):
         
         #print('move servo..')
@@ -139,7 +142,7 @@ def loop():
         servo.move(105)
         #time.sleep_ms(100)
         # wait 2 seconds:
-        time.sleep_ms(5400)
+        time.sleep_ms(2900)
         # stop moving the servo:
         servo.move(90)
         time.sleep_ms(50)
@@ -152,28 +155,31 @@ def loop():
         
   elif(program_state == 'STATE 3'):
     rgb.fill_color(get_color(250, 0, 0))
-    if adc1_val > 2000:
-      for i2 in range(100):
+    if adc1_val > 1000:
+      if(time.ticks_ms() > rainbow_timer + 50):
+        rainbow_timer = time.ticks_ms()
+        #for i2 in range(100):
         for i in range(30):
-    # hue based on pixel index:
-    #hue = map_value(i, 0, 30, 0, 255)
-    # hue based on pixel index and rainbow offset:
-          index = (i + rainbow_offset) % 30
-          hue = map_value(index, 0, 30, 0, 255)
-          color = hsb_to_color(hue, 255, 255)
-          rgb.set_color(i, color)
+            # hue based on pixel index:
+            #hue = map_value(i, 0, 30, 0, 255)
+            # hue based on pixel index and rainbow offset:
+            index = (i + rainbow_offset) % 30
+            hue = map_value(index, 0, 30, 0, 255)
+            color = hsb_to_color(hue, 255, 255)
+            rgb.set_color(i, color)
         rainbow_offset += 1
-        time.sleep_ms(50)
-      program_state = 'STATE 4'
-      
+        program_state = 'STATE 4'
+        #time.sleep_ms(50)
+         
   elif(program_state == 'STATE 4'):
-    if adc1_val < 2000:
+    if adc1_val < 800:
       program_state = 'STATE 2'
     
   if(program_state == 'STATE 2') or (program_state == 'STATE 3')  or (program_state == 'STATE 1'):
     if adc1_val < 2000:
+        
       #program_state = 'STATE 2'
-      #print(program_state + "," +  str(adc1_val))
+      #print(program_state + "," +  str(adc1_val))         
       servo_timer = time.ticks_ms()
       rgb_timer = time.ticks_ms()
       
@@ -197,3 +203,6 @@ if __name__ == '__main__':
       print_error_msg(e)
     except ImportError:
       print("please update to latest firmware")
+
+
+
