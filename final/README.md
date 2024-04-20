@@ -19,7 +19,7 @@ Exploring different forms
 ## Implementation   
 ### Enclosure / Mechanical Design:
 I used:
-* Laser cut arylic for the gotcha box
+* Laser cut acrylic for the gotcha box
 * 20 LB foam for the base and stand
   
 Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
