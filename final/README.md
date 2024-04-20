@@ -22,8 +22,8 @@ I used:
 * Laser cut acrylic for the gotcha box
 * 20 LB foam for the base and stand
   
-Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I got the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
-For the base and the stand, I used a soft 6LB foam (pink) and 20 LB foam together (orange).
+Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I get the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
+For the base and the stand, I use a soft 6LB foam (pink) and 20 LB foam together (orange).
 
 laser cut file for the gotcha box
 
@@ -37,9 +37,9 @@ Cut the first prototype out
 
 ![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c8de3dcb-bb42-44b8-a7d6-047d8e50f824)
 
-From the first test, I was glad to find out the servo is able to move the gotcha machine. So I started to do the second, or the final prototype. I changed all of the foam to 20LB because it was a stronger material. 
+From the first test, I am glad to find out the servo is able to move the gotcha machine. So I start to do the second, or the final prototype. I change all of the foam to 20LB because it is a stronger material. 
 
-!![box*stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/34d59631-c8f5-422a-9da1-8abe7fbc4c69)
+![box*stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/34d59631-c8f5-422a-9da1-8abe7fbc4c69)
 
 ### The Hardware Part:
 I used:
@@ -104,7 +104,7 @@ In order to achieve the change between the rotating mode and sound mode, I set f
         servo_timer = time.ticks_ms()
         rgb_timer = time.ticks_ms()
 ```
-After that, a ball will come off and rolls to the hole. When the ball roll to the hole, the program will enter 'STATE 3', the music playing stage. The LED light will turn to rainbow and the computer will play sound.
+After that, a ball will come off and rolls to the hole. When the ball rolls to the hole, the program will enter 'STATE 3', the music playing state. The LED light will turn to rainbow color and the computer will play sound.
 
 ``` Python  
 elif(program_state == 'STATE 3'):
@@ -131,7 +131,7 @@ When the users pick the ball up, the program will enter 'STATE 4', which allows 
       program_state = 'STATE 2'
 ```
 
-'STATE 2' is basically the same as 'STATE 1'. The only difference is when the users long press the button, the servo moves 360° instead of 180°, because the opening now goes to the bottom after the first rotation.
+'STATE 2' is basically the same as 'STATE 1'. The only difference is when users long press the button, the servo moves 360° instead of 180°, because the opening now goes to the bottom after the first rotation.
 
 ``` Python  
 if adc1_val > 1700:
