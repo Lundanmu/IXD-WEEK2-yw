@@ -37,7 +37,7 @@ Cut the first prototype out
 
 ![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c8de3dcb-bb42-44b8-a7d6-047d8e50f824)
 
-From the first test, I am glad to find out the servo is able to move the gotcha machine. So I start to do the second, or the final prototype. I change all of the foam to 20 LB because it is a stronger material. 
+From the first test, I am glad to find out the servo is able to move the gacha machine. So I start to do the second, or the final prototype. I change all of the foam to 20 LB because it is a stronger material. 
 
 ![box*stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/34d59631-c8f5-422a-9da1-8abe7fbc4c69)
 
@@ -57,7 +57,7 @@ In order to make the light sensor be sensitive enough, I stick it to the back of
 
 ![stuck](https://github.com/Lundanmu/adv-prototyping/assets/141177081/7aa766bc-5177-4a8f-bed6-617bc7daac42)
 
-The round disk is sticked on the acrylic surface strongly. I need to insert the servo into the disk to make the gotcha box move.
+The round disk is sticked on the acrylic surface strongly. I need to insert the servo into the disk to make the gacha box move.
 
 ![servo stucking](https://github.com/Lundanmu/adv-prototyping/assets/141177081/29f4d564-31a8-4069-8cdf-6223b98a6937)
 
