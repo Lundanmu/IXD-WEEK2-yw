@@ -1,10 +1,10 @@
 # Yi Wang - Final Project
-## Music Gotcha Machine
+## Music Gacha Machine
 
 ## Introduction   
-This is a music gotcha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates it will drop a ball off. When the ball rolls to the hole, the computer will play music. The initial idea is designing the machine connected to a website. The user will play the sound by inputting the number written on the ball to the website. While I was working on the progress, I found out there are too many unnecessary steps in this way, so I got rid of the website part, enabling users to play music as long as they make the machine rotate. 
+This is a music gacha machine to help users select music. While people want to play music in daily life, sometimes they don’t know what to listen to. So I want to make a fun music selector to help them make the decision. The way this device works is, everytime it rotates it will drop a ball off. When the ball rolls to the hole, the computer will play music. The initial idea is designing the machine connected to a website. The user will play the sound by inputting the number written on the ball to the website. While I was working on the progress, I found out there are too many unnecessary steps in this way, so I got rid of the website part, enabling users to play music as long as they make the machine rotate. 
 
-Final Outcome
+Final outcome
 
 ![IMG_0263](https://github.com/Lundanmu/adv-prototyping/assets/141177081/5035e814-19b6-4712-a900-05139c2daf1d)
 
@@ -19,13 +19,13 @@ Exploring different forms
 ## Implementation   
 ### Enclosure / Mechanical Design:
 I used:
-* Laser cut acrylic for the gotcha box
+* Laser cut acrylic for the gacha box
 * 20 LB foam for the base and stand
   
-Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gotcha box, I get the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
-For the base and the stand, I use a soft 6LB foam (pink) and 20 LB foam together (orange).
+Since this is a project highly based on the mechanical part, there are few things I was not sure about at the beginning stage, such as if the servo is strong enough to rotate the gotcha box. To make these questions figured out, I need to make a quick prototype. For the gacha box, I get the acrylic pieces using laser cut, and table saw to make the 30° angle on the edge. The thickness of acrylic is 1/4’’ so it is easy for me to stick them together. 
+For the base and the stand, I use a soft 6 LB foam (pink) and 20 LB foam together (orange).
 
-laser cut file for the gotcha box
+Laser cut file for the gacha box
 
 ![Group 11](https://github.com/Lundanmu/adv-prototyping/assets/141177081/90adbc9c-43c4-47a2-84e9-c222dbfc2e56)
 
@@ -37,7 +37,7 @@ Cut the first prototype out
 
 ![first pp](https://github.com/Lundanmu/adv-prototyping/assets/141177081/c8de3dcb-bb42-44b8-a7d6-047d8e50f824)
 
-From the first test, I am glad to find out the servo is able to move the gotcha machine. So I start to do the second, or the final prototype. I change all of the foam to 20LB because it is a stronger material. 
+From the first test, I am glad to find out the servo is able to move the gotcha machine. So I start to do the second, or the final prototype. I change all of the foam to 20 LB because it is a stronger material. 
 
 ![box*stand](https://github.com/Lundanmu/adv-prototyping/assets/141177081/34d59631-c8f5-422a-9da1-8abe7fbc4c69)
 
@@ -74,7 +74,7 @@ I was mainly using a light sensor as my input. Its adc_value serves as the trigg
 adc1 = ADC(Pin(1), atten=ADC.ATTN_11DB)
 ```
 
-Set the 'START' state, resetting all the timers and enable the LED Light turn on to red.
+Set the 'START' state, resetting all the timers and enabling the LED Light turn on to red.
 
 ``` Python  
   if(program_state == 'START'):
@@ -88,7 +88,7 @@ Set the 'START' state, resetting all the timers and enable the LED Light turn on
       print(program_state + "," + str(adc1_val))
 ```
 
-In order to achieve the change between the rotating mode and sound mode, I set four states in the program after the user turns on the device. The first state is 'STATE 1'.When the user long presses the button, the program will enter 'STATE 2' to make the servo move 180°. The LED light will turn from red to green. So basically, this state serves as a switch.
+In order to achieve the change between the rotating mode and sound mode, I set four states in the program after the user turns on the device. The first state is 'STATE 1'. When the user long presses the button, the program will enter 'STATE 2' to make the servo move 180°. The LED light will turn from red to green. So basically, this state serves as a switch.
 
 ``` Python  
   elif(program_state == 'STATE 1'):
@@ -104,7 +104,7 @@ In order to achieve the change between the rotating mode and sound mode, I set f
         servo_timer = time.ticks_ms()
         rgb_timer = time.ticks_ms()
 ```
-After that, a ball will come off and rolls to the hole. When the ball rolls to the hole, the program will enter 'STATE 3', the music playing state. The LED light will turn to rainbow color and the computer will play sound.
+After that, a ball will come off and rolls to the hole. When the ball rolls to the hole, the program will enter 'STATE 3', the music playing state. The LED light will turn to a rainbow color and the computer will play sound.
 
 ``` Python  
 elif(program_state == 'STATE 3'):
@@ -197,7 +197,7 @@ I learned a lot about how to combine the physical parts and coding together. The
 
 ### Opportunities & Future Development 
 There are still a couple of things I could explore in this project. For the mechanical part, the chances for the ball to fall off are not so stable, because it may get stuck at the opening or piled up to block it. I may fix it by drilling the opening bigger and making a door for that. 
-For the coding part, initially I wanted the rainbow color to be blinking while playing the music. However I found out the waiting time for the blinking loop and the waiting time for the states will conflict, which means the state will stop changing if I applied the blinking effect. So I would like to explore this problem more if I have more time.
+For the coding part, initially I wanted the rainbow color to be blinking while playing the music. However I found out the waiting time for the blinking loop and for the states will conflict, which means the state will stop changing if I applied the blinking effect. So I would like to explore this problem more if I have more time.
 
 ## Project references  
 
